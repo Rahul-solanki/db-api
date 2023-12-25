@@ -1,2 +1,5 @@
 rootProject.name = 'db-api'
+include 'jsb-api'
+include 'jsb-models'
+include 'jsb-client'
 
