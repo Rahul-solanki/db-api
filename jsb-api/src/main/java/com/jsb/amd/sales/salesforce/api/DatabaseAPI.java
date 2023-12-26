@@ -4,10 +4,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 
-@SpringBootApplication(exclude = { SecurityAutoConfiguration.class})
+@SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
 public class DatabaseAPI {
     public static void main(String[] args) {
-        //SpringApplication.run(DatabaseAPI.class, args);
-        SpringApplication.run(DatabaseAPI.class, args);
+        try {
+            SpringApplication.run(DatabaseAPI.class, args);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 }
