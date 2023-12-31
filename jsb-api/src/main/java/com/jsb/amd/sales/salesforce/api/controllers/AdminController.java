@@ -1,6 +1,7 @@
 package com.jsb.amd.sales.salesforce.api.controllers;
 
 import com.jsb.amd.sales.salesforce.api.services.AdminService;
+import com.jsb.amd.sales.salesforce.client.AdminResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,6 +33,11 @@ public class AdminController {
                                                                      @RequestParam(value = "sfUser", required = false) String requestingKerberos) {
         return new ResponseEntity<>(adminService.impersonate(requestingKerberos, targetKerberos), HttpStatus.ACCEPTED);
 
+    }
+
+    @GetMapping("/isAdmin")
+    public ResponseEntity<AdminResponse> isAdmin(@RequestHeader("Authorization") String tokenString) {
+        return new ResponseEntity<>(new AdminResponse(true), HttpStatus.ACCEPTED);
     }
 
 }
